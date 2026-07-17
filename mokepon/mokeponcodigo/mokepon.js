@@ -1,26 +1,15 @@
 function seleccionarMascotaJugador(){
+    const inputMascota = document.querySelector(`input[name="mascotas"]:checked`)
 
-    if(document.getElementById("hipodoge").checked == true){
-        alert("!Tu mascota es: Hipodoge...!")
-    } 
-    else if(document.getElementById("capipepo").checked == true){
-        alert("!Tu mascota es: Capipepo...!")
-    }
-    else if(document.getElementById("ratigueya").checked == true){
-        alert("!Tu mascota es: Ratigueya...!")
-    } 
-    else if(document.getElementById("langostelvis").checked == true){
-        alert("!Tu mascota es: Langostelvis...!")
-    } 
-    else if(document.getElementById("tucapalma").checked == true){
-        alert("!Tu mascota es: Tucapalma...!")
-    } 
-    else if(document.getElementById("pydos").checked == true){
-        alert("!Tu mascota es: Pydos...!")
+    if (inputMascota){
+        const labelMascota = document.querySelector(`label[for="${inputMascota.id}"]`)
+
+        alert("seleccionaste " + labelMascota.textContent + "...!")
+
     } else {
-        alert("Selecciona una mascota")
-    }
+        alert("¡SELECCIONATE PERDER!")
 
+    }
 }
 
 function iniciarJuego(){
