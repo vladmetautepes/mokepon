@@ -66,38 +66,43 @@ function seleccionarMascotaEnemigo() {
 function ataqueAleatorio(){
 
     if (ataqueEnemigo == 1){
-        ataqueEnemigo = "Fuego"
+        ataqueEnemigo = "FUEGO 🔥"
+
    } else if (ataqueEnemigo == 2) {
-        ataqueEnemigo = "Agua"
-   } else {
-        ataqueEnemigo = "Tierra"
+        ataqueEnemigo = "AGUA 💧"
+
+   }else {
+        ataqueEnemigo = "TIERRA 🌱"
+
    }
    alert(ataqueEnemigo)
+
+   crearMensaje()
 }
 
 function ataqueFuego(){
-    ataqueJugador = "Fuego"
+    ataqueJugador = "FUEGO 🔥"
     alert(ataqueJugador)
 }
 
 function ataqueAgua(){
-    ataqueJugador = "Agua"
+    ataqueJugador = "AGUA 💧"
     alert(ataqueJugador)
 }
 
 function ataqueTierra(){
-    ataqueJugador = "Tierra"
+    ataqueJugador = "TIERRA 🌱"
     alert(ataqueJugador)
 }
 
-function ataquePc(){
-    if(ataqueEnemigo == 1)
-        ataqueEnemigo = "Fuego"
-    else if(ataqueEnemigo == 2)
-        ataqueEnemigo = "Agua"
-    else {
-        ataqueEnemigo = "Tierra"
-    }
+
+function crearMensaje (){
+    let sectionMensajes = document.getElementById("mensajes")
+
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo ataco con " + ataqueEnemigo + " PENDIENTE"
+
+    sectionMensajes.appendChild(parrafo);
 }
 
 window.addEventListener("load" , iniciarJuego)
