@@ -1,5 +1,5 @@
 let ataqueJugador
-let ataqueEnemigo = aleatorio(1 , 3)
+let ataqueEnemigo 
 
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById("boton-mascota")
@@ -64,17 +64,18 @@ function seleccionarMascotaEnemigo() {
 }
 
 function ataqueAleatorio(){
+    ataqueEnemigo = aleatorio(1,3)
 
     if (ataqueEnemigo == 1){
         ataqueEnemigo = "FUEGO 🔥"
-
-   } else if (ataqueEnemigo == 2) {
+   } 
+   else if (ataqueEnemigo == 2) {
         ataqueEnemigo = "AGUA 💧"
-
-   }else {
-        ataqueEnemigo = "TIERRA 🌱"
-
    }
+   else {
+        ataqueEnemigo = "TIERRA 🌱"
+   }
+
    alert(ataqueEnemigo)
 
    crearMensaje()
