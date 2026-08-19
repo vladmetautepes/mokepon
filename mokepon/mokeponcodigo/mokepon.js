@@ -1,5 +1,7 @@
 let ataqueJugador
-let ataqueEnemigo 
+let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById("boton-mascota")
@@ -20,7 +22,7 @@ function iniciarJuego(){
         ataqueTierra();
         ataqueAleatorio();
     });
-}
+}8
 
 function seleccionarMascotaJugador() {
     const inputMascota = document.querySelector(`input[name="mascotas"]:checked`)
@@ -76,32 +78,53 @@ function ataqueAleatorio(){
         ataqueEnemigo = "TIERRA 🌱"
    }
 
-   alert(ataqueEnemigo)
+   combate()
+}
 
-   crearMensaje()
+function combate() {
+    let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+    let spanVidasJugador = document.getElementById("vidas-jugador")
+
+    if(ataqueJugador == ataqueEnemigo) {
+        crearMensaje("EMPATE")
+
+    } else if(ataqueJugador == "FUEGO 🔥" && ataqueEnemigo == "TIERRA 🌱") {
+        crearMensaje("GANASTE")
+        vidasEnemigo --
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == "AGUA 💧" && ataqueEnemigo == "FUEGO 🔥") {
+        crearMensaje("GANASTE")
+        vidasEnemigo --
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == "TIERRA 🌱" && ataqueEnemigo == "AGUA 💧") {
+        crearMensaje("GANASTE")
+        vidasEnemigo --
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else {
+        crearMensaje("PERDISTE")
+        vidasJugador--
+        spanVidasJugador.innerHTML = vidasJugador
+    }
 }
 
 function ataqueFuego(){
     ataqueJugador = "FUEGO 🔥"
-    alert(ataqueJugador)
 }
 
 function ataqueAgua(){
     ataqueJugador = "AGUA 💧"
-    alert(ataqueJugador)
 }
 
 function ataqueTierra(){
     ataqueJugador = "TIERRA 🌱"
-    alert(ataqueJugador)
 }
 
 
-function crearMensaje (){
+function crearMensaje(resultado){
     let sectionMensajes = document.getElementById("mensajes")
 
     let parrafo = document.createElement("p")
-    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo ataco con " + ataqueEnemigo + " PENDIENTE"
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo ataco con " + ataqueEnemigo + " - " + resultado
 
     sectionMensajes.appendChild(parrafo);
 }
